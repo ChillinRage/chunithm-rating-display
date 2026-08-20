@@ -5,11 +5,17 @@ const IMAGES = [
 
 const image = document.getElementById("displayImage");
 const button = document.getElementById("toggleButton");
-
 let imageIndex = 0;
+
+function updateDisplay() {
+  image.src = IMAGES[imageIndex].src;
+  button.textContent = IMAGES[imageIndex].version;
+}
 
 button.addEventListener("click", () => {
   imageIndex = (imageIndex + 1) % IMAGES.length;
-  image.src = IMAGES[imageIndex].src;
-  button.textContent = IMAGES[imageIndex].version;
+  updateDisplay();
 });
+
+
+updateDisplay();  // (initialize) on page load
