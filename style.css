@@ -1,12 +1,16 @@
+body {
+  padding: 20px;
+}
+
 #toggleButton {
     display: block;
-    margin: 20px auto;
+    margin-bottom: 20px;
 }
 
 #displayImage {
     display: block;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 900px;
     width: 100%;
-    height: auto
+    height: auto;
 }
