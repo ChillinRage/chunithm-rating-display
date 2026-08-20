@@ -1,0 +1,12 @@
+#toggleButton {
+    display: block;
+    margin: 20px auto;
+}
+
+#displayImage {
+    display: block;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+    height: auto
+}
