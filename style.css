@@ -2,15 +2,21 @@ body {
   padding: 20px;
 }
 
+#displayContainer {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
 #toggleButton {
     display: block;
     margin-bottom: 20px;
+    font-size: 22px;
+    padding: 8px 15px;
+    border-radius: 6px;
 }
 
 #displayImage {
     display: block;
-    margin: 0 auto;
-    max-width: 900px;
     width: 100%;
     height: auto;
 }
