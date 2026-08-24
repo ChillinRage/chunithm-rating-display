@@ -1,6 +1,6 @@
 const IMAGES = [
-  {version: "JP", src: "images/chunithm-jp.jpeg"},
-  {version: "INTL", src: "images/chunithm-intl.jpg"}
+  {version: "JP", src: "https://images.chanhow.link/game-rating/chunithm-jp.jpeg"},
+  {version: "INTL", src: "https://images.chanhow.link/game-rating/chunithm-intl.jpg"}
 ];
 
 const image = document.getElementById("displayImage");
