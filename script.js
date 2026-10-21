@@ -1,3 +1,9 @@
+// html elements
+const imageElement = document.getElementById("displayImage");
+const versionSelect = document.getElementById("versionDropdown");
+const unavailableElement = document.getElementById("imageUnavailable");
+
+
 async function loadImages() {
   const DATA_FILES = [
     { region: "INTL", path: "./data/intl.json" },
@@ -26,13 +32,22 @@ async function loadImages() {
   return datasets.flat();
 }
 
+function updateImage(src) {
+  if (src) {
+    imageElement.src = src;
+    imageElement.style.display = "block";
+    unavailableElement.hidden = true;
+  } else {
+    imageElement.removeAttribute("src");
+    imageElement.style.display = "none";
+    unavailableElement.hidden = false;
+  }
+}
+
 
 async function initialize() {
-  const imageElement = document.getElementById("displayImage");
-  const versionSelect = document.getElementById("versionDropdown");
-
   versionSelect.addEventListener("change", event => {
-    imageElement.src = event.target.value;
+    updateImage(event.target.value);
   });
 
   const IMAGES = await loadImages();
@@ -42,7 +57,7 @@ async function initialize() {
 
     if (isDefault) {
       option.selected = true;
-      imageElement.src = src;
+      updateImage(src);
     }
   });
 }

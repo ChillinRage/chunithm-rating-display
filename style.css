@@ -4,7 +4,7 @@ body {
 
 #displayContainer {
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 800px;
 }
 
 #versionDropdown {
@@ -20,4 +20,27 @@ body {
     width: 100%;
     height: auto;
     border: 1px solid black;
+}
+
+#imageUnavailable {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px;
+    min-height: 240px;
+    margin: 0;
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #666;
+    background-color: #f5f5f5;
+    border: 1px solid black;
+    font-size: 18px;
+    text-align: center;
+}
+
+#imageUnavailable[hidden] {
+    display: none;
 }
