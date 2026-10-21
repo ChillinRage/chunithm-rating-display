@@ -1,5 +1,5 @@
 body {
-  padding: 20px;
+  padding: 6px;
 }
 
 #displayContainer {
@@ -7,11 +7,11 @@ body {
     max-width: 900px;
 }
 
-#toggleButton {
+#versionDropdown {
     display: block;
-    margin-bottom: 20px;
-    font-size: 22px;
-    padding: 8px 15px;
+    margin-bottom: 6px;
+    font-size: 18px;
+    padding: 5px;
     border-radius: 6px;
 }
 
@@ -19,4 +19,5 @@ body {
     display: block;
     width: 100%;
     height: auto;
+    border: 1px solid black;
 }

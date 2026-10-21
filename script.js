@@ -1,21 +1,50 @@
-const IMAGES = [
-  {version: "JP", src: "https://images.chanhow.link/game-rating/chunithm-jp.jpeg"},
-  {version: "INTL", src: "https://images.chanhow.link/game-rating/chunithm-intl.jpg"}
-];
+async function loadImages() {
+  const DATA_FILES = [
+    { region: "INTL", path: "./data/intl.json" },
+    { region: "JP", path: "./data/jp.json" }
+  ];
 
-const image = document.getElementById("displayImage");
-const button = document.getElementById("toggleButton");
-let imageIndex = 0;
+  const datasets = await Promise.all(
+    DATA_FILES.map(async ({ region, path }) => {
+      const response = await fetch(path);
+      if (!response.ok) {
+        throw new Error(`(${response.status}) Unable to load ${path}`);
+      }
 
-function updateDisplay() {
-  image.src = IMAGES[imageIndex].src;
-  button.textContent = IMAGES[imageIndex].version;
+      const entries = await response.json();
+      return entries
+        .slice()
+        .reverse()
+        .map(entry => ({
+          version: `${region} (${entry.version})`,
+          src: entry.imageSrc,
+          isDefault: Boolean(entry.default)
+        }));
+    })
+  );
+
+  return datasets.flat();
 }
 
-button.addEventListener("click", () => {
-  imageIndex = (imageIndex + 1) % IMAGES.length;
-  updateDisplay();
-});
 
+async function initialize() {
+  const imageElement = document.getElementById("displayImage");
+  const versionSelect = document.getElementById("versionDropdown");
 
-updateDisplay();  // (initialize) on page load
+  versionSelect.addEventListener("change", event => {
+    imageElement.src = event.target.value;
+  });
+
+  const IMAGES = await loadImages();
+  IMAGES.map(({version, src, isDefault}) => {
+    const option = new Option(version, src);
+    versionSelect.add(option);
+
+    if (isDefault) {
+      option.selected = true;
+      imageElement.src = src;
+    }
+  });
+}
+
+initialize();
