@@ -1,11 +1,11 @@
 [
   {
     "version": "X Verse X",
-    "imageSrc": "https://images.chanhow.link/game-rating/chunithm-intl/xversex.jpg",
-    "default": true
+    "imageSrc": "https://images.chanhow.link/game-rating/chunithm-intl/xversex.jpg"
   },
   {
     "version": "Mate",
-    "imageSrc": ""
+    "imageSrc": "https://images.chanhow.link/game-rating/chunithm-intl/mate.jpg",
+    "default": true
   }
 ]
